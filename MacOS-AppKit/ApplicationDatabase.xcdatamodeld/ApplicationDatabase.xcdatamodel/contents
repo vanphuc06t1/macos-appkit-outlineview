@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19H1323" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Country" representedClassName="Country" syncable="YES" codeGenerationType="class">
+        <attribute name="captial" optional="YES" attributeType="String"/>
+        <attribute name="name" attributeType="String" defaultValueString="Unnamed"/>
+        <relationship name="children" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="State" inverseName="parent" inverseEntity="State"/>
+    </entity>
+    <entity name="County" representedClassName="County" syncable="YES" codeGenerationType="class">
+        <attribute name="county_seat" optional="YES" attributeType="String"/>
+        <attribute name="name" attributeType="String" defaultValueString="Unnamed"/>
+        <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="State" inverseName="children" inverseEntity="State"/>
+    </entity>
+    <entity name="State" representedClassName="State" syncable="YES" codeGenerationType="class">
+        <attribute name="capital" optional="YES" attributeType="String"/>
+        <attribute name="name" attributeType="String" defaultValueString="Unnamed"/>
+        <relationship name="children" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="County" inverseName="parent" inverseEntity="County"/>
+        <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Country" inverseName="children" inverseEntity="Country"/>
+    </entity>
+    <elements>
+        <element name="Country" positionX="-63" positionY="-18" width="128" height="88"/>
+        <element name="State" positionX="-54" positionY="9" width="128" height="103"/>
+        <element name="County" positionX="-36" positionY="45" width="128" height="88"/>
+    </elements>
+</model>
